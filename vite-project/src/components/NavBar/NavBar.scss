@@ -1,0 +1,32 @@
+.navbar {
+    background: rgb(11, 17, 23);
+    width: 100%;
+   font-family: "Inter", sans-serif;
+    .navbar-wrapper {
+        width: 90%;
+        margin: 0 auto;
+        padding: 1rem 2rem;
+        display: flex;
+        align-items: center;
+        gap: 7rem;
+        a{
+            img{
+                width: 30px;
+                height: 30px;
+            }
+        }
+        ul {
+            list-style: none;
+            display: flex;
+            gap: 7rem;
+
+            li {
+                a {
+                    color: antiquewhite;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+}
