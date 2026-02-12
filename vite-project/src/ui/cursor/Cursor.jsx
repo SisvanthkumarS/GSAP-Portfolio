@@ -7,39 +7,46 @@ export default function Cursor() {
   const glowRef = useRef(null);
 
   useEffect(() => {
-    const mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+    if (!dotRef.current || !glowRef.current) return;
 
-    const move = (e) => {
-      mouse.x = e.clientX;
-      mouse.y = e.clientY;
-    };
-
-    window.addEventListener("mousemove", move);
-
+    // Center both cursor elements on pointer
     gsap.set([dotRef.current, glowRef.current], {
       xPercent: -50,
       yPercent: -50,
     });
 
-    gsap.ticker.add(() => {
-      gsap.to(dotRef.current, {
-        x: mouse.x,
-        y: mouse.y,
-        duration: 0.15,
-        ease: "power3.out",
-      });
-
-      gsap.to(glowRef.current, {
-        x: mouse.x,
-        y: mouse.y,
-        duration: 0.6,
-        ease: "power3.out",
-      });
+    // Fast dot movement
+    const moveDotX = gsap.quickTo(dotRef.current, "x", {
+      duration: 0.15,
+      ease: "power3.out",
+    });
+    const moveDotY = gsap.quickTo(dotRef.current, "y", {
+      duration: 0.15,
+      ease: "power3.out",
     });
 
+    // Slow, laggy glow movement
+    const moveGlowX = gsap.quickTo(glowRef.current, "x", {
+      duration: 0.8,
+      ease: "power3.out",
+    });
+    const moveGlowY = gsap.quickTo(glowRef.current, "y", {
+      duration: 0.8,
+      ease: "power3.out",
+    });
+
+    const handleMove = (e) => {
+      moveDotX(e.clientX);
+      moveDotY(e.clientY);
+
+      moveGlowX(e.clientX);
+      moveGlowY(e.clientY);
+    };
+
+    window.addEventListener("mousemove", handleMove);
+
     return () => {
-      window.removeEventListener("mousemove", move);
-      gsap.ticker.remove();
+      window.removeEventListener("mousemove", handleMove);
     };
   }, []);
 

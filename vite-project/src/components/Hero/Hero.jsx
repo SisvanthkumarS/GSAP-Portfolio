@@ -8,65 +8,53 @@ import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
-    const heroRef = useRef(null);
-    const titleRef = useRef(null);
+  const heroRef = useRef(null);
+  const zoomRef = useRef(null);
+  const stRef = useRef(null);
 
-    useGSAP(
-        () => {
-            const ctx = gsap.context(() => {
-                const tl = gsap.timeline({
-                    scrollTrigger: {
-                        trigger: heroRef.current,
-                        start: "top top",
-                        end: "+=150%",
-                        scrub: 1.2,
-                        pin: true,
-                        pinSpacing: true,
-                        anticipatePin: 1,
-                        invalidateOnRefresh: true,
-                    },
-                });
+  useGSAP(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: heroRef.current,
+        start: "top top",
+        end: "+=80%",
+        scrub: 1.2,
+        pin: true,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+        id: "heroPin",
+      },
+    });
 
-                tl.to(titleRef.current, {
-                    scale: 12,
-                    ease: "power2.inOut",
-                    duration: 1,
-                }).to(
-                    titleRef.current,
-                    {
-                        opacity: 0,
-                        duration: 0.4,
-                        ease: "power2.out",
-                    },
-                    "-=0.3"
-                );
-            }, heroRef);
+    tl.to(zoomRef.current, { scale: 10, opacity: 0, ease: "none" });
 
-            return () => ctx.revert();
-        },
-        { scope: heroRef }
-    );
+    stRef.current = tl.scrollTrigger;
 
-    return (
-        <section className="hero" ref={heroRef}>
-            <div className="hero-overlay" />
+    return () => {
+      tl.scrollTrigger?.kill();
+      tl.kill();
+    };
+  }, []);
 
-            <div ref={titleRef}  className="hero-content">
-                <h1 className="hero-title">
-                    SISVANTH
-                </h1>
-                <div className="hero-sub">
-                    <span className="line"></span>
-                    <span className="tag-line">FULL-STACK ENGINEER • CREATIVE TECHNOLOGIST</span>
-                    <span className="line"></span>
-                </div>
-                <div className="scroll-down-indicator">
-                    <img src="./assets/images/scroll-down.png" alt="scroll-down-arrow" />
-                    <p>Scroll down to explore</p>
-                </div>
-            </div>
-        </section>
-    );
+  return (
+    <section className="hero" ref={heroRef}>
+      <div className="hero-overlay" />
+      <div className="hero-content">
+        <div ref={zoomRef} className="hero-zoom">
+          <h1 className="hero-title">SISVANTH</h1>
+          <div className="hero-sub">
+            <span className="line" />
+            <span className="tag-line">FULL-STACK ENGINEER • CREATIVE TECHNOLOGIST</span>
+            <span className="line" />
+          </div>
+          <div className="scroll-down-indicator">
+            <img src="/assets/images/scroll-down.png" alt="scroll" />
+            <p>Scroll down to explore</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Hero;

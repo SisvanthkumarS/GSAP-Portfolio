@@ -1,0 +1,130 @@
+// About.scss
+.aboutWaypoints {
+    position: relative;
+    min-height: 100vh;
+    // overflow: hidden;
+
+    //   background-image: url("/assets/images/h.jpg");
+    //   background-size: cover;
+    //   background-position: center;
+    //   background-repeat: no-repeat;
+
+}
+
+.spacer {
+    font-size: 6.5rem;
+    position: absolute;
+    z-index: 2;
+    top: -15%;
+    left: 32%;
+    color: rgb(255, 255, 255);
+   font-family: "Antonio", sans-serif;
+}
+
+.main {
+    position: relative;
+    height: 158vh;
+}
+
+.container {
+    position: absolute;
+    z-index: 3;
+    width: 140px;
+    height: 140px;
+    // border: 2px dashed rgba(255, 255, 255);
+    background-color: #fff;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Start point */
+.initial {
+    left: 60%;
+    top: 5%;
+}
+
+/* Down-the-page markers */
+// .second {
+//     left: 10%;
+//     top: 25%;
+// }
+
+.third {
+    right: 10%;
+    top: 45%;
+}
+
+.fourth {
+    left: 20%;
+    top: 65%;
+}
+
+.fifth {
+    left: 60%;
+    top: 77%;
+}
+
+.sixth {
+    left: 15%;
+    top: 95%;
+}
+
+.marker {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255);
+    object-fit: contain;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    z-index: 20;
+    border-radius: 10px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+
+    /* use your asset */
+    background-image: url("/assets/images/plane.png");
+}
+
+
+.aboutBgVideo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.aboutBgOverlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55); // tweak 0.4–0.7
+    z-index: 1;
+}
+.inner-wrapper{
+    left: 10%;
+    top: 25%;
+    display: flex;
+    color: white;
+    flex-direction: row;
+    width: 32%;
+    .second{
+        position: unset;
+    }
+    h1{
+        font-size: 1rem;
+        text-align: center;
+    }
+}
+
+
+
+
+
