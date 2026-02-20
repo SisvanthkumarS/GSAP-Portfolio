@@ -1,35 +1,52 @@
-.directional-marquee-container{
-  margin-top: 70px;
-  height: 45vh;
+.directional-marquee-container {
+  margin-top: clamp(32px, 6vw, 70px);
+  padding: 0 clamp(14px, 4vw, 50px);
+  height: auto; 
 }
+
+.intro-text {
+  font-family: "Inter", sans-serif;
+  font-weight: 200;
+  color: #fff;
+
+  font-size: clamp(1.4rem, 4vw, 3.2rem);
+  line-height: 1.15;
+
+  text-align: right;
+  padding-right: 0; 
+  margin: 0;
+}
+
+
 .scrolling-text {
-  // background: #000;
   overflow: hidden;
   width: 100%;
   display: flex;
   align-items: center;
-  margin: 40px 0;
-  // background-color: var(--color-just-black);
+
+  margin: clamp(18px, 4vw, 40px) 0;
 }
+
 .scrolling-text .rail {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: clamp(10px, 2.5vw, 20px);
   font-family: "Inter", sans-serif;
+  will-change: transform;
 }
-.scrolling-text .rail h4 {
+
+.scrolling-text .rail .text {
   white-space: nowrap;
-  font-size: 100px;
+  font-size: clamp(2.2rem, 9vw, 6.25rem); 
   font-weight: 200;
-  letter-spacing: ls(120);
-  line-height: 1em;
+  line-height: 1;
   color: aliceblue;
+  letter-spacing: clamp(0.02em, 0.6vw, 0.18em);
 }
-.intro-text {
-  font-size: 3.2rem;
-  font-family: "Inter", sans-serif;
-  font-weight: 200;
-  text-align: right;
-  padding-right: 50px;
-  color: white;
+
+
+@media (prefers-reduced-motion: reduce) {
+  .scrolling-text {
+    overflow: auto;
+  }
 }

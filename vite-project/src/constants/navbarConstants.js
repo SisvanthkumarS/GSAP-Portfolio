@@ -1,7 +1,7 @@
 export const navLinks = [
-  { id: "experience", label: "Experience" },
-  { id: "education", label: "Education" },
-  { id: "honors", label: "Certifications" },
+  { id: "aboutMe", label: "About Me" },
+  { id: "timeline", label: "Journey" },
+  { id: "certification", label: "Certifications" },
   { id: "skills", label: "Skills" }
 ];
 

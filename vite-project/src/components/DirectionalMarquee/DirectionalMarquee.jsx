@@ -4,14 +4,23 @@ import { Observer } from "gsap/all";
 import { useGSAP } from "@gsap/react";
 import "./DirectionalMarquee.scss";
 import Circle from "../Circle/Circle";
+import { tagline } from "../../constants/aboutmeConstants";
+import { tags } from "../../constants/aboutmeConstants";
+
 gsap.registerPlugin(Observer);
 
+/**
+ * @author Sisvanthkumar Sathivadivel
+ * @returns DirectionalMarquee component that creates a horizontal scrolling marquee of tags. The marquee scrolls continuously and changes direction based on user scroll input (wheel, touch, pointer). The speed of the marquee increases temporarily when the user scrolls, creating an interactive experience.
+ * The component uses GSAP for animation and the Observer plugin to detect scroll input. The horizontalLoop function creates a seamless looping animation for the marquee items.
+ */
 const DirectionalMarquee = () => {
   const rootRef = useRef(null);
 
   useGSAP(
     () => {
-      const items = gsap.utils.toArray(".rail .text", rootRef.current);
+      const items = gsap.utils.toArray(rootRef.current.querySelectorAll(".rail > *"));
+
       if (!items.length) return;
 
       const loopTl = horizontalLoop(items, {
@@ -44,28 +53,21 @@ const DirectionalMarquee = () => {
   return (
     <section className="directional-marquee-container">
       <div>
-        <p className="intro-text">I'm mostly the following</p>
+        <p className="intro-text">{tagline}</p>
       </div>
       <div className="scrolling-text" ref={rootRef}>
-      <div className="rail">
-        <h4 className="text">I DESIGN</h4>
-        <Circle />
-        <h4 className="text">I DEVELOP</h4>
-        <Circle />  
-        <h4 className="text">I GET THINGS DONE</h4>
-        <Circle />
+        <div className="rail">
+          {tags.map((tag, index) => (
+            <React.Fragment key={index}>
+              <h4 className="text">{tag}</h4>
+              {index !== tags.length - 1 && <Circle />}
+            </React.Fragment>
+          ))}
 
-        
-        <h4 className="text">I DESIGN</h4>
-        <Circle />
-        <h4 className="text">I DEVELOP</h4>
-        <Circle />
-        <h4 className="text">I GET THINGS DONE</h4>
-        <Circle />
+        </div>
       </div>
-    </div>
     </section>
-    
+
   );
 };
 
@@ -98,7 +100,7 @@ function horizontalLoop(items, config = {}) {
       const w = (widths[i] = parseFloat(gsap.getProperty(el, "width", "px")));
       xPercents[i] = snap(
         (parseFloat(gsap.getProperty(el, "x", "px")) / w) * 100 +
-          gsap.getProperty(el, "xPercent")
+        gsap.getProperty(el, "xPercent")
       );
       return xPercents[i];
     },
@@ -111,7 +113,7 @@ function horizontalLoop(items, config = {}) {
     (xPercents[length - 1] / 100) * widths[length - 1] -
     startX +
     items[length - 1].offsetWidth *
-      gsap.getProperty(items[length - 1], "scaleX") +
+    gsap.getProperty(items[length - 1], "scaleX") +
     (parseFloat(config.paddingRight) || 0);
 
   for (let i = 0; i < length; i++) {

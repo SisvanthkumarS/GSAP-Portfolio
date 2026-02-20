@@ -1,7 +1,10 @@
-// WarpSpeed.jsx
 import { useEffect, useRef } from "react";
 import "./Warp.scss";
 
+/**
+ * @author Sisvanthkumar Sathivadivel
+ * @returns WarpSpeed component that creates a starfield animation on a canvas. The stars move towards the center of the screen, creating a warp speed effect. The animation responds to user input, allowing them to control the speed and direction of the warp using keyboard arrows or mouse/touch interactions. The component uses requestAnimationFrame for smooth animations and handles resizing to maintain the effect across different screen sizes.
+ */
 export default function WarpSpeed() {
     const canvasRef = useRef(null);
     const rafRef = useRef(0);
@@ -22,18 +25,17 @@ export default function WarpSpeed() {
         };
         resize();
 
-        // state
         let xMod = 0;
         let yMod = 0;
         let warpSpeed = 0;
 
         const setWarp = (on) => (warpSpeed = on ? 1 : 0);
 
-        // stars
+   
         function Star() {
             this.x = Math.random() * w;
             this.y = Math.random() * h;
-            this.c = 0; // 0..255 intensity
+            this.c = 0;
         }
 
         Star.prototype.updateColor = function () {
@@ -64,7 +66,7 @@ export default function WarpSpeed() {
         const STAR_COUNT = 200;
         const stars = Array.from({ length: STAR_COUNT }, () => new Star());
 
-        // input
+      
         const onKeyDown = (e) => {
             const code = e.keyCode || e.which;
 
@@ -113,7 +115,7 @@ export default function WarpSpeed() {
 
 
         const onMouseDown = (e) => {
-            if (e.button !== 0) return; // 0 = left click
+            if (e.button !== 0) return;
             setWarp(true);
         };
 
@@ -128,9 +130,7 @@ export default function WarpSpeed() {
         };
         const onTouchEnd = () => setWarp(false);
 
-        // draw
         const draw = () => {
-            // trail effect only when NOT warping (same as your original)
             if (warpSpeed === 0) {
                 ctx.fillStyle = "rgba(0,0,0,0.2)";
                 ctx.fillRect(0, 0, w, h);
@@ -140,7 +140,6 @@ export default function WarpSpeed() {
                 const s = stars[i];
                 const c = s.c;
 
-                // ✅ ORANGE when warping, grayscale otherwise
                 if (warpSpeed) {
                     ctx.fillStyle = `rgb(${c},${Math.floor(c * 0.45)},0)`;
                 } else {
@@ -155,17 +154,16 @@ export default function WarpSpeed() {
             rafRef.current = requestAnimationFrame(draw);
         };
 
-        // start
         rafRef.current = requestAnimationFrame(draw);
 
-        // listeners
+    
         window.addEventListener("resize", resize);
         window.addEventListener("keydown", onKeyDown, { passive: false });
         window.addEventListener("keyup", onKeyUp, { passive: false });
         canvas.addEventListener("mousedown", onMouseDown);
         window.addEventListener("mouseup", onMouseUp);
 
-        // cleanup
+       
         return () => {
             cancelAnimationFrame(rafRef.current);
             window.removeEventListener("resize", resize);

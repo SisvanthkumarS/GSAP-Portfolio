@@ -53,7 +53,10 @@ const TIMELINE = [
   },
 ];
 
-
+/**
+ * @author Sisvanthkumar Sathivadivel
+ * @returns Experience component that renders a vertical timeline of professional milestones. Each timeline item animates into view as the user scrolls, with a line that fills up to indicate progress through the timeline. The component uses GSAP for scroll-triggered animations, creating an engaging way to showcase career highlights and achievements.
+ */
 export default function Experience() {
   const sectionRef = useRef(null);
   const timelineRef = useRef(null);
@@ -131,8 +134,7 @@ export default function Experience() {
           },
         });
       });
-
-      // If you use ScrollSmoother / custom smooth scrolling:
+      
       ScrollTrigger.refresh();
     },
     { scope: sectionRef }

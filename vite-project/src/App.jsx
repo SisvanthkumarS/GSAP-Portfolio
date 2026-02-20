@@ -11,6 +11,8 @@ import Experience from "./components/Experience/Experience";
 import Warp from "./components/Warp/Warp";
 import Certifications from "./components/TechnicalCertifications/Certifications";
 import TechStack from "./components/TechStack/TechStack";
+import Contact from "./components/Contact/Contact";
+import Projects from "./components/Projects/Projects";
 
 gsap.registerPlugin(ScrollTrigger, SplitText, ScrollSmoother);
 
@@ -31,14 +33,16 @@ const App = () => {
       <Warp />
       <Cursor />
       <div id="smooth-wrapper">
+          {/* <Navbar /> */}
         <div id="smooth-content">
-          <Navbar />
           <Hero />
           <WhoAmI/>
           <DirectionalMarquee />
           <Experience />
           <TechStack/>
+          <Projects />
           <Certifications />
+          <Contact />
         </div>
       </div>
     </>

@@ -5,9 +5,14 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import SplitType from "split-type";
+import { aboutmeDescription } from "../../constants/aboutmeConstants";
 
 gsap.registerPlugin(ScrollTrigger);
 
+/**
+ * @author Sisvanthkumar Sathivadivel
+ * @returns WhoAmI component that introduces the portfolio owner with a description and an image. The description text animates into view word by word as the user scrolls, creating an engaging introduction to the portfolio. The component uses GSAP for scroll-triggered animations and SplitType for splitting the text into words for individual animation control.
+ */
 const WhoAmI = () => {
   const sectionRef = useRef(null);
   const textRef = useRef(null);
@@ -40,7 +45,6 @@ const WhoAmI = () => {
       },
     });
 
-    // Refresh once layout is stable + after image loads
     const img = root.querySelector("img");
     const refresh = () => ScrollTrigger.refresh();
 
@@ -57,12 +61,12 @@ const WhoAmI = () => {
 
 
   return (
-    <section className="whoami-section" >
-      <h1 className="sub-heading">01. About Me</h1>
+    <section className="whoami-section" id="aboutMe">
+      <h1 className="whoami-sub-heading">01. About Me</h1>
       <div className="whoami-content " ref={sectionRef}>
         <div className="whoami-inner">
           <p className="split" ref={textRef}>
-            I’m Sisvanth Kumar Sathivadivel, a full-stack software engineer focused on building reliable, scalable products. I design clean backend architecture, craft secure APIs and microservices, and ship fast, responsive interfaces—turning complex ideas into polished experiences that perform in the real world.
+            {aboutmeDescription}
           </p>
           <img
             src="/assets/images/common/caricature.png"
