@@ -52,18 +52,15 @@ const DirectionalMarquee = () => {
 
   return (
     <section className="directional-marquee-container">
-      <div>
-        <p className="intro-text">{tagline}</p>
-      </div>
+      <p className="intro-text">{tagline}</p>
       <div className="scrolling-text" ref={rootRef}>
         <div className="rail">
-          {tags.map((tag, index) => (
-            <React.Fragment key={index}>
-              <h4 className="text">{tag}</h4>
-              {index !== tags.length - 1 && <Circle />}
-            </React.Fragment>
-          ))}
-
+          <h4 className="text">{tags[0]}</h4>
+          <Circle />
+          <h4 className="text">{tags[1]}</h4>
+          <Circle />
+          <h4 className="text">{tags[2]}</h4>
+           <Circle />
         </div>
       </div>
     </section>
