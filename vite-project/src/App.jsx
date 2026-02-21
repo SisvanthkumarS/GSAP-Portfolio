@@ -37,7 +37,7 @@ const App = () => {
         <div id="smooth-content">
           <Hero />
           <WhoAmI/>
-          <DirectionalMarquee />
+          {/* <DirectionalMarquee /> */}
           <Experience />
           <TechStack/>
           <Projects />
