@@ -8,7 +8,7 @@ const PROJECTS = [
   image: "/assets/images/common/portfolio-image.png",
   tags: ["React", "GSAP", "ScrollTrigger", "SCSS", "Vite"],
   links: [
-    { label: "Live Demo", href: "https://your-portfolio-link.com", icon: "↗" },
+    { label: "Live Demo", href: "https://sisvanth-gsap-portfolio.vercel.app/", icon: "↗" },
     { label: "Source Code", href: "https://github.com/SisvanthkumarS/GSAP-Portfolio", icon: "⌂" },
   ]
 }
