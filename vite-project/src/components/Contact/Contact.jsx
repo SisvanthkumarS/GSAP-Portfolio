@@ -23,7 +23,7 @@ export default function Contact() {
       </div>
 
       <div className="contact__container">
-     
+
         <div className="contact__left">
           <h2 className="contact__title">
             Let’s build <br />
@@ -49,6 +49,15 @@ export default function Contact() {
             className="contact__form"
             action="https://formspree.io/f/mqedddzp"  // 👈 replace with your Formspree endpoint
             method="POST"
+            onKeyDownCapture={(e) => {
+              const isField =
+                e.target instanceof HTMLInputElement ||
+                e.target instanceof HTMLTextAreaElement ||
+                e.target instanceof HTMLSelectElement ||
+                e.target.isContentEditable;
+
+              if (isField && e.key === " ") e.stopPropagation();
+            }}
           >
             {/* optional extras */}
             <input type="hidden" name="_subject" value="Portfolio Contact" />
