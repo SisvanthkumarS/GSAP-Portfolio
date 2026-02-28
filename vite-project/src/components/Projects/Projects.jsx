@@ -19,6 +19,7 @@ const PROJECTS = [
     image: "/assets/images/common/chatbot-cover.png",
    tags: ["AWS", "Lex", "Lambda", "API Gateway", "SQS", "DynamoDB", "OpenSearch"],
     links: [
+      { label: "Live Demo", href: "https://amanns-dining-concierge-nyc.s3.us-east-1.amazonaws.com/index.html", icon: "↗" },
       { label: "Source Code", href: "https://github.com/SisvanthkumarS/dining-concierge-chatbot", icon: "⌂" },
     ],
   },
