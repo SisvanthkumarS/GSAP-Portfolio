@@ -8,8 +8,7 @@ const PROJECTS = [
   image: "/assets/images/common/portfolio-image.png",
   tags: ["React", "GSAP", "ScrollTrigger", "SCSS", "Vite"],
   links: [
-    { label: "Live Demo", href: "https://sisvanth-gsap-portfolio.vercel.app/", icon: "↗" },
-    { label: "Source Code", href: "https://github.com/SisvanthkumarS/GSAP-Portfolio", icon: "⌂" },
+    { label: "Source Code", href: "https://github.com/SisvanthkumarS/GSAP-Portfolio", icon: "⌂" }
   ]
 }
 ,
@@ -19,9 +18,26 @@ const PROJECTS = [
     image: "/assets/images/common/chatbot-cover.png",
    tags: ["AWS", "Lex", "Lambda", "API Gateway", "SQS", "DynamoDB", "OpenSearch"],
     links: [
-      { label: "Live Demo", href: "https://amanns-dining-concierge-nyc.s3.us-east-1.amazonaws.com/index.html", icon: "↗" },
       { label: "Source Code", href: "https://github.com/SisvanthkumarS/dining-concierge-chatbot", icon: "⌂" },
     ],
+  },
+  {
+    title: "LLM Sentinel — Multi-Layer AI Security System",
+    desc: "Designed and implemented a multi-layer security system for detecting and logging adversarial prompts and jailbreak attempts against LLMs. Built a pipeline that captures bypass payloads, logs attack metadata to DynamoDB, archives raw payloads in S3, and visualizes attack trends through a Streamlit dashboard deployed on EC2. Collaborated with a team to design detection layers, scoring heuristics, and a real-time monitoring workflow.",
+    image: "/assets/images/common/llm-sentinel-cover.png",
+    tags: ["AWS", "DynamoDB", "S3", "EC2", "Streamlit", "LLM Security", "Python"],
+    links: [
+      { label: "Source Code", href: "https://github.com/SisvanthkumarS/llm-sentinel", icon: "⌂" }
+    ]
+  },
+  {
+    title: "Amazon Fake Review Detection",
+    desc: "Researched and proposed a machine learning pipeline to identify fake or manipulated product reviews on Amazon at scale. Explored large-scale dataset processing, feature engineering for review authenticity signals, and distributed data processing techniques as part of a graduate Big Data systems project. Collaborated with a team to design the data pipeline architecture and detection approach.",
+    image: "/assets/images/common/fake-review-cover.png",
+    tags: ["PySpark", "Big Data", "Machine Learning", "Python"],
+    links: [
+      { label: "Source Code", href: "https://github.com/SisvanthkumarS/fake-review-detection", icon: "⌂" }
+    ]
   },
 ];
 
