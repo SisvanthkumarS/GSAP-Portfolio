@@ -18,6 +18,8 @@ const gsapIcon = "/assets/images/tech-icons/gsapIcon.svg";
 const sassIcon = "/assets/images/tech-icons/sassIcon.svg";
 
 // Backend icons
+const pythonIcon = "/assets/images/tech-icons/pythonIcon.svg";
+const djangoIcon = "/assets/images/tech-icons/djangoIcon.svg";
 const javaIcon = "/assets/images/tech-icons/javaIcon.svg";
 const springIcon = "/assets/images/tech-icons/springIcon.svg";
 const apiIcon = "/assets/images/tech-icons/apiIcon.svg";
@@ -70,6 +72,8 @@ const SECTIONS = [
         label: "BACKEND",
         techs: [
             "Java",
+            "Python",
+            "Django",
             "Spring Boot",
             "Spring MVC",
             "Spring Security",
@@ -108,6 +112,8 @@ const TECH_ICONS = {
     GSAP: gsapIcon,
     SASS: sassIcon,
 
+    Python: pythonIcon,
+    Django: djangoIcon,
     Java: javaIcon,
     "Spring Boot": springIcon,
     "Spring MVC": springIcon,

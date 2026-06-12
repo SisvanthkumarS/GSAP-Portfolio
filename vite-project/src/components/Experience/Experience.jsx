@@ -51,6 +51,13 @@ const TIMELINE = [
     desc:
       "Coursework: Design & Analysis of Algorithms, Human Computer Interaction, Big Data, Cloud Computing. Seeking Software Engineering Internship roles.",
   },
+  {
+    date: "MAY 2026 – JUL 2026",
+    title: "Software Engineer Intern",
+    org: "LOCOMeX / Assetim",
+    desc:
+      "Worked as a Software Engineer Intern using Python, Django, and AWS. Built a Django-based NSPIRE RRP Lead Paint Visual Inspection feature with model design, migrations, and WeasyPrint PDF generation; designed Figma UI mockups and contributed to climate tech backend workflows on AWS.",
+  },
 ];
 
 /**
