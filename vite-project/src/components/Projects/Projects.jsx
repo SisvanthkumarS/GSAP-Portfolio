@@ -24,7 +24,7 @@ const PROJECTS = [
   {
     title: "LLM Sentinel — Multi-Layer AI Security System",
     desc: "Designed and implemented a multi-layer security system for detecting and logging adversarial prompts and jailbreak attempts against LLMs. Built a pipeline that captures bypass payloads, logs attack metadata to DynamoDB, archives raw payloads in S3, and visualizes attack trends through a Streamlit dashboard deployed on EC2. Collaborated with a team to design detection layers, scoring heuristics, and a real-time monitoring workflow.",
-    image: "/assets/images/common/llm-sentinel-cover.png",
+    image: "/assets/images/common/LLM-senti.jpeg",
     tags: ["AWS", "DynamoDB", "S3", "EC2", "Streamlit", "LLM Security", "Python"],
     links: [
       { label: "Source Code", href: "https://github.com/SisvanthkumarS/llm-sentinel", icon: "⌂" }
